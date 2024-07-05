@@ -1,5 +1,11 @@
-.App {
+.home-class {
   text-align: center;
+  background-color: #184F90;
+  padding-bottom: 4.6vh;
+}
+
+.default-class {
+  padding-bottom: 4.6vh;
 }
 
 .App-logo {

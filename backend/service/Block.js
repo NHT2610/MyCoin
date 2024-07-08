@@ -1,25 +1,10 @@
-const CryptoJS = require('crypto-js');
-
 class Block {
-  constructor(index, timestamp, transactions, previousHash, validator) {
+  constructor(index, hash, previousHash, timestamp, data) {
     this.index = index;
-    this.timestamp = timestamp;
-    this.transactions = transactions;
+    this.hash = hash;
     this.previousHash = previousHash;
-    this.validator = validator;
-    this.nonce = 0;
-    this.hash = this.caculateHash();
-  }
-
-  caculateHash() {
-    return CryptoJS.SHA256(
-      this.index +
-      this.timestamp +
-      JSON.stringify(this.transactions) +
-      this.previousHash +
-      this.validator +
-      this.nonce)
-      .toString();
+    this.timestamp = timestamp;
+    this.data = data;
   }
 }
 

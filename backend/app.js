@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const indexRouter = require('./routes/index');
-const walletsRouter = require('./routes/wallets');
+const blockchainRouter = require('./routes/blockchain');
 
 const app = express();
 app.use(cors());
@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/wallets', walletsRouter);
+app.use('/blockchain', blockchainRouter);
 
 const server_port = process.env.SERVER_PORT || 2000;
 

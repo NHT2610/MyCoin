@@ -5,48 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca3065fc-519e-4716-8925-ff7aed070d74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/Block.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/Blockchain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/Transaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/Wallet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Banner.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/cards/AccessWalletCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/cards/CreateWalletCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/dialogs/AccessWalletDialog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/dialogs/CreateWalletDialog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/contexts/WalletContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/wallet/Wallet.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/backend/BackendApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/backend/BackendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/TransactionPool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/transaction/TxIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/transaction/TxOut.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/transaction/UnspentTxOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/WalletController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/WalletController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wallets.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wallets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/Block.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Block.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/Blockchain.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Blockchain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/Transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Transaction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/Wallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Wallet.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +36,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -71,24 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.1.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.14.9&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/New Technologies in Software Development/BTCN/Blockchain/My Project/MyCoin/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "22.1.0",
+    "javascript.nodejs.core.library.typings.version": "20.14.9",
+    "last_opened_file_path": "E:/New Technologies in Software Development/BTCN/Blockchain/My Project/MyCoin/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.webpack",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -107,7 +88,9 @@
       <workItem from="1719804332385" duration="7177000" />
       <workItem from="1720021507703" duration="6769000" />
       <workItem from="1720063240183" duration="421000" />
-      <workItem from="1720167918000" duration="943000" />
+      <workItem from="1720167918000" duration="27017000" />
+      <workItem from="1720314338671" duration="281000" />
+      <workItem from="1720357533647" duration="373000" />
     </task>
     <servers />
   </component>

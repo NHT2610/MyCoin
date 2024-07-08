@@ -6,16 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="ca3065fc-519e-4716-8925-ff7aed070d74" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/blockchain.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/TransactionPool.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/transaction/TxIn.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/transaction/TxOut.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/transaction/UnspentTxOut.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/WalletController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/WalletController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/BlockchainController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/BlockchainController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/WalletController.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wallets.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wallets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/wallets.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service/Block.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Block.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/Blockchain.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Blockchain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/Transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Transaction.js" afterDir="false" />
@@ -54,6 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Node.js.bin\\www.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "javascript.nodejs.core.library.configured.version": "22.1.0",
@@ -90,7 +94,7 @@
       <workItem from="1720063240183" duration="421000" />
       <workItem from="1720167918000" duration="27017000" />
       <workItem from="1720314338671" duration="281000" />
-      <workItem from="1720357533647" duration="373000" />
+      <workItem from="1720357533647" duration="28085000" />
     </task>
     <servers />
   </component>

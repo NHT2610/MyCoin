@@ -1,11 +1,12 @@
-const _ = require('lodash');
-
 class TransactionPool {
   constructor(transactions) {
     this.transactionPool = transactions;
   }
 
-  addTransaction(transaction) {
+  addTransaction(transaction, aUnspentTxOuts) {
+    if (!transaction.validateTransaction(aUnspentTxOuts)) {
+      throw new Error('Invalid transaction');
+    }
     this.transactionPool.push(transaction);
   }
   getTransactions() {

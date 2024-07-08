@@ -5,6 +5,7 @@ const TransactionPool = require('./TransactionPool');
 const UnspentTxOut = require('./transaction/UnspentTxOut');
 const TxOut = require('./transaction/TxOut');
 const Transaction = require('./Transaction');
+const TxIn = require('./transaction/TxIn');
 
 class Blockchain {
   constructor() {
@@ -15,9 +16,12 @@ class Blockchain {
   }
 
   initUnspentTxOutForNewWallet(wallet) {
+    const genesisTxIn = new TxIn('', 0, '', wallet.publicKey, '', 0);
     const genesisTxOut = new TxOut(wallet.publicKey, 50);
-    const genesisTransaction = new Transaction([], [genesisTxOut]);
+    const genesisTransaction = new Transaction([genesisTxIn], [genesisTxOut]);
     this.unspentTxOuts.push(new UnspentTxOut(genesisTransaction.id, 0, wallet.publicKey, 50));
+    const newBlock = this.generateNextBlock([genesisTransaction], wallet);
+    this.blockchain.push(newBlock);
   }
   calculateHash(index, previousHash, timestamp, data) {
     return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();

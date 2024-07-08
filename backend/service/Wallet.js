@@ -20,34 +20,38 @@ class Wallet {
     return key.getPublic('hex');
   }
   static signTxIn(transaction, txIn, privateKey) {
-    const key = ec.keyFromPrivate(privateKey);
-    const signature = key.sign(transaction.id);
-    txIn.signature = signature.toDER('hex');
+    const key = ec.keyFromPrivate(privateKey, 'hex');
+    return key.sign(transaction.id).toDER('hex');
   }
-  static createTransaction(from, to, amount, unspentTxOuts, txPool) {
-    const txIns = [];
-    const txOuts = [];
-
+  static getCurrentTimestamp() {
+    return Math.round(new Date().getTime() / 1000);
+  }
+  static createTransaction(from, to, amount, unspentTxOuts, txPool, privateKey) {
+    // Kiểm tra có đủ số lượng coin để gửi
+    const myUnspentTxOuts = unspentTxOuts.filter(uTxO => uTxO.address === from);
+    console.log(myUnspentTxOuts);
+    const myAmount = myUnspentTxOuts.reduce((acc, uTxO) => acc + uTxO.amount, 0);
+    if (myAmount < amount) {
+      throw new Error('Insufficient funds');
+    }
+    // Tính toán số coin từ các uTxO, tạo các txOuts mới và txIns
     let currentAmount = 0;
-    for (const uTxO of unspentTxOuts) {
-      if (uTxO.address === from && currentAmount < amount) {
-        txIns.push(new TxIn(uTxO.txOutId, uTxO.txOutIndex, null, from, to, amount, new Date().getTime()));
-        currentAmount += uTxO.amount;
-      }
+    const txIns = [];
+    for (const uTxO of myUnspentTxOuts) {
+      const txIn = new TxIn(uTxO.txOutId, uTxO.txOutIndex, '', from, to, amount, Wallet.getCurrentTimestamp());
+      txIns.push(txIn);
+      currentAmount += uTxO.amount;
+      if (currentAmount >= amount) break;
     }
-
-    if (currentAmount < amount) {
-      throw new Error('Not enough balance');
-    }
-
-    txOuts.push(new TxOut(to, amount));
+    const txOuts = [new TxOut(to, amount)];
     if (currentAmount > amount) {
       txOuts.push(new TxOut(from, currentAmount - amount));
     }
-
-    const newTransaction = new Transaction(txIns, txOuts);
-    txPool.addTransaction(newTransaction);
-    return newTransaction;
+    // Tạo transaction từ txIns và txOuts vừa tạo, ký vào mỗi txIn và thêm transaction mới vào pool
+    const transaction = new Transaction(txIns, txOuts);
+    transaction.txIns.forEach(txIn => txIn.signature = Wallet.signTxIn(transaction, txIn, privateKey));
+    txPool.addTransaction(transaction, unspentTxOuts);
+    return transaction;
   }
   static getBalance(aUnspentTxOuts, address) {
     const unspentTxOuts = aUnspentTxOuts.filter(uTxO => uTxO.address === address);

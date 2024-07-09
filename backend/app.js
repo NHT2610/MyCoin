@@ -5,6 +5,7 @@ const logger = require('morgan');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
+dotenv.config();
 const indexRouter = require('./routes/index');
 const blockchainRouter = require('./routes/blockchain');
 
@@ -19,11 +20,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/blockchain', blockchainRouter);
-
-const server_port = process.env.SERVER_PORT || 2000;
-
-app.listen(server_port, () => {
-  console.log(`Server is running on port: ${server_port}`);
-});
 
 module.exports = app;

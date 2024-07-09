@@ -5,24 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca3065fc-519e-4716-8925-ff7aed070d74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/blockchain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/TransactionPool.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/transaction/TxIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/transaction/TxOut.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/transaction/UnspentTxOut.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/dialogs/SendCoinDialog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/wallet/BlockchainContent.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/wallet/Sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/wallet/TransactionContent.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/wallet/WalletAddress.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/wallet/WalletContent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/BlockchainController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/BlockchainController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/WalletController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wallets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/blockchain.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/blockchain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/Block.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Block.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/Blockchain.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Blockchain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/Transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/Wallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/Wallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/contexts/WalletContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/contexts/WalletContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/wallet/Wallet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Wallet.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,25 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.bin\\www.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "22.1.0",
-    "javascript.nodejs.core.library.typings.version": "20.14.9",
-    "last_opened_file_path": "E:/New Technologies in Software Development/BTCN/Blockchain/My Project/MyCoin/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.webpack",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.bin\\www.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.1.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.14.9&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/New Technologies in Software Development/BTCN/Blockchain/My Project/MyCoin/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.webpack&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -95,6 +94,7 @@
       <workItem from="1720167918000" duration="27017000" />
       <workItem from="1720314338671" duration="281000" />
       <workItem from="1720357533647" duration="28085000" />
+      <workItem from="1720439829220" duration="48130000" />
     </task>
     <servers />
   </component>

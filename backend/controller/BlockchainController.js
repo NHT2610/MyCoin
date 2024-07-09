@@ -52,10 +52,21 @@ class BlockchainController {
       res.status(400).send(e.message);
     }
   }
-  async getBlocksMined(req, res) {
+  async getMinedBlocks(req, res) {
     const address = req.params.address;
-    const blocksMined = chain.getBlocksMined(address);
-    res.send({ blocksMined });
+    res.send(chain.getMinedBlocksForWallet(address));
+  }
+  async getTransactions(req, res) {
+    const data = chain.getTransactions().map((tx) => {
+      return {
+        id: tx.id,
+        from: tx.txIns[0].from,
+        to: tx.txIns[0].to,
+        amount: tx.txIns[0].amount,
+        timestamp: tx.txIns[0].timestamp
+      };
+    });
+    res.send(data);
   }
 }
 

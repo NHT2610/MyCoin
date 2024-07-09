@@ -2,7 +2,7 @@ import './App.css';
 import Home from './pages/Home';
 import {WalletProvider} from './contexts/WalletContext';
 import {Route, Routes, useLocation} from 'react-router-dom';
-import Wallet from './pages/wallet/Wallet';
+import Wallet from './pages/Wallet';
 
 function App() {
   const location = useLocation();
@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/#" element={<Home />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/wallet/*" element={<Wallet />} />
         </Routes>
       </div>
     </WalletProvider>

@@ -23,8 +23,8 @@ class BlockchainController {
     }
   }
   async getBalance(req, res) {
-    const { publicKey } = req.body;
-    res.send({ balance: Wallet.getBalance(chain.unspentTxOuts, publicKey) });
+    const address = req.params.address;
+    res.send({ balance: Wallet.getBalance(chain.unspentTxOuts, address) });
   }
   async createTransaction(req, res) {
     const { from, to, amount, privateKey } = req.body;
@@ -36,6 +36,26 @@ class BlockchainController {
     } catch (error) {
       res.status(400).send(error.message);
     }
+  }
+  async mineBlock(req, res) {
+    const { privateKey } = req.body;
+    const publicKey = Wallet.getPublicKey(privateKey);
+    const wallet = { privateKey, publicKey };
+    try {
+      const newBlock = chain.mineBlock(wallet);
+      if (newBlock) {
+        res.send(newBlock);
+      } else {
+        res.status(400).send('Failed to mine block');
+      }
+    } catch (e) {
+      res.status(400).send(e.message);
+    }
+  }
+  async getBlocksMined(req, res) {
+    const address = req.params.address;
+    const blocksMined = chain.getBlocksMined(address);
+    res.send({ blocksMined });
   }
 }
 

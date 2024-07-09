@@ -6,22 +6,32 @@ const UnspentTxOut = require('./transaction/UnspentTxOut');
 const TxOut = require('./transaction/TxOut');
 const Transaction = require('./Transaction');
 const TxIn = require('./transaction/TxIn');
+const Wallet = require('./Wallet');
 
 class Blockchain {
   constructor() {
     this.blockchain = [this.createGenesisBlock()];
+    this.transactions = [];
     this.transactionPool = new TransactionPool([]);
     this.unspentTxOuts = [new UnspentTxOut()];
     this.stakeholders = {};
+    this.initWalletCoins = 50;
+    this.coinBase = 1;
   }
 
+  addTransactions(aTransactions) {
+    this.transactions.concat(aTransactions);
+    return this.transactions;
+  }
   initUnspentTxOutForNewWallet(wallet) {
-    const genesisTxIn = new TxIn('', 0, '', wallet.publicKey, '', 0);
-    const genesisTxOut = new TxOut(wallet.publicKey, 50);
+    const txOutIndex = this.getLatestBlock().index + 1;
+    const genesisTxIn = new TxIn('', txOutIndex, '', wallet.publicKey, '', 0, this.getCurrentTimestamp());
+    const genesisTxOut = new TxOut(wallet.publicKey, this.initWalletCoins);
     const genesisTransaction = new Transaction([genesisTxIn], [genesisTxOut]);
     this.unspentTxOuts.push(new UnspentTxOut(genesisTransaction.id, 0, wallet.publicKey, 50));
     const newBlock = this.generateNextBlock([genesisTransaction], wallet);
     this.blockchain.push(newBlock);
+    this.stakeholders[wallet.publicKey] = { balance: this.initWalletCoins, blocksMined: 0 };
   }
   calculateHash(index, previousHash, timestamp, data) {
     return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
@@ -38,30 +48,34 @@ class Blockchain {
   getLatestBlock() {
     return this.blockchain[this.blockchain.length - 1];
   }
+  getBlocksMined(address) {
+    return this.stakeholders[address].blocksMined;
+  }
   addBlock(newBlock) {
     if (this.isValidNewBlock(newBlock, this.getLatestBlock())) {
       this.blockchain.push(newBlock);
+      this.updateUnspentTxOuts(newBlock.data);
       const validator = this.selectValidator();
       if (validator) {
-        this.updateStakeholders(validator, 1);
+        const validatorBalance = Wallet.getBalance(this.unspentTxOuts, validator);
+        this.updateStakeholders(validator, validatorBalance);
       }
-      this.updateUnspentTxOuts(newBlock.data);
       return true;
     }
     return false;
   }
   isValidNewBlock(newBlock, previousBlock) {
     if (previousBlock.index + 1 !== newBlock.index) return false;
-    if (previousBlock.hash === newBlock.previousHash) return false;
-    return this.calculateHashForBlock(newBlock) !== newBlock.hash;
+    if (previousBlock.hash !== newBlock.previousHash) return false;
+    return this.calculateHashForBlock(newBlock) === newBlock.hash;
   }
   selectValidator() {
     const stakeholders = Object.keys(this.stakeholders);
-    const totalStake = stakeholders.reduce((total, address) => total + this.stakeholders[address], 0);
+    const totalStake = stakeholders.reduce((total, address) => total + this.stakeholders[address].balance, 0);
     let winner = null;
     let max = 0;
     stakeholders.forEach((address) => {
-      const probability = this.stakeholders[address] / totalStake;
+      const probability = this.stakeholders[address].balance / totalStake;
       if (Math.random() < probability && probability > max) {
         winner = address;
         max = probability;
@@ -69,20 +83,28 @@ class Blockchain {
     });
     return winner;
   }
+  createCoinbaseTransaction(address, blockIndex) {
+    const txIn = new TxIn('', blockIndex, '', '', address, 0, this.getCurrentTimestamp());
+    const txOut = new TxOut(address, this.coinBase);
+    return new Transaction([txIn], [txOut]);
+  }
   mineBlock(wallet) {
     const validator = this.selectValidator();
+    console.log(validator);
     if (validator !== wallet.publicKey) {
       throw new Error('You are not the selected validator');
     }
+    const coinbaseTx = this.createCoinbaseTransaction(validator, this.getLatestBlock().index + 1);
     const validTransactions = this.transactionPool.getTransactions();
-    const newBlock = this.generateNextBlock(validTransactions, wallet);
+    const data = [coinbaseTx].concat(validTransactions);
+    const newBlock = this.generateNextBlock(data);
     if (this.addBlock(newBlock)) {
-      this.updateUnspentTxOuts(newBlock.data);
       this.transactionPool.clear();
       return newBlock;
     }
   }
-  generateNextBlock(transactions, wallet) {
+  generateNextBlock(transactions) {
+    this.addTransactions(transactions);
     const previousBlock = this.getLatestBlock();
     const nextIndex = previousBlock.index + 1;
     const nextTimestamp = this.getCurrentTimestamp();
@@ -91,9 +113,9 @@ class Blockchain {
   }
   updateStakeholders(address, amount) {
     if (!this.stakeholders[address]) {
-      this.stakeholders[address] = 0;
+      this.stakeholders[address] = { balance: 0, blocksMined: 0 };
     }
-    this.stakeholders[address] += amount;
+    this.stakeholders[address] = { balance: amount, blocksMined: this.stakeholders[address].blocksMined + 1 };
   }
   updateUnspentTxOuts(newTransactions) {
     const newUnspentTxOuts = newTransactions.map(tx => {

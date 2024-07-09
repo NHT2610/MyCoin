@@ -5,8 +5,10 @@ const BlockchainController = require('../controller/BlockchainController');
 router.get('/', BlockchainController.prototype.getBlockchain);
 router.get('/wallets/create', BlockchainController.prototype.createWallet);
 router.post('/wallets/access', BlockchainController.prototype.accessWallet);
-router.get('/wallets/balance', BlockchainController.prototype.getBalance);
+router.get('/wallets/balance/:address', BlockchainController.prototype.getBalance);
+router.get('/wallets/blocks-mined/:address', BlockchainController.prototype.getBlocksMined);
 
 router.post('/transaction/create', BlockchainController.prototype.createTransaction);
+router.post('/mine-block', BlockchainController.prototype.mineBlock);
 
 module.exports = router;
